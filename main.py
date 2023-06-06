@@ -7,6 +7,5 @@ for item in ['x', 'y', 'z']:
   print(item)
 for item in ['x', 'y', 'z']:
   print(item)
-for item in ['x', 'y', 'z']:
-  print(item)
+
   
