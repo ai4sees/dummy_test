@@ -4,6 +4,8 @@ import numpy as np
 import plotly.graph_objects as go
 from plotly.subplots import make_subplots
 
+{"username":"mahaboobandbasha","key":"f9a1a6c863f923aab4559f695aabeafb"}
+
 # Generate synthetic time series data
 np.random.seed(42)
 n_points = 100
