@@ -21,15 +21,7 @@ threshold = 2.0
 reconstruction_errors = np.abs(original_data - np.mean(original_data))
 anomalies = reconstruction_errors > threshold
 
-The multiple camera calibration system should have the following modules:
 
-1. **Camera Geometry and Modeling**: Calculate intrinsic (focal length, optical center, distortion coefficients) and extrinsic (position, orientation) parameters, and correct lens distortions.
-2. **Calibration Pattern Design and Detection**: Select appropriate calibration patterns (e.g., chessboard, circle-grid, ChArUco boards) and implement robust detection algorithms.
-3. **Image Acquisition and Synchronization**: Ensure synchronized, multi-view image capture across all cameras to avoid temporal discrepancies.
-4. **Initial Calibration**: Perform initial pair-wise calibration to get rough estimates of relative camera positions.
-5. **Simultaneous Multi-Camera Optimization**: Refine calibration parameters by simultaneously optimizing all cameras using non-linear optimization techniques.
-6. **Cross-Detection and Constraint Optimization**: Utilize concurrent detections to impose constraints and minimize reprojection errors.
-7. **Calibration Validation and Error Analysis**: Evaluate calibration accuracy through reprojection, translation, and rotation error metrics, and refine as necessary.
 
 # Create subplots
 fig = make_subplots(rows=3, cols=1, shared_xaxes=True, subplot_titles=['Original Time Series', 'Reconstruction Errors', 'Anomalies'])
