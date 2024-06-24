@@ -21,13 +21,6 @@ threshold = 2.0
 reconstruction_errors = np.abs(original_data - np.mean(original_data))
 anomalies = reconstruction_errors > threshold
 
-1. **Camera Intrinsic Parameter Estimation**: Calculate internal characteristics for each camera, such as focal length and distortion coefficients.
-2. **Image Acquisition and Synchronization**: Capture synchronized images from multiple cameras to ensure consistent and accurate data.
-3. **Extrinsic Parameter Estimation**: Determine relative positions and orientations of cameras within a shared coordinate system.
-4. **Calibration for Varying FoVs**: Adapt calibration processes to account for different fields of view among the cameras.
-5. **Calibration Validation and Error Analysis**: Evaluate and refine the calibration accuracy using reprojection, translation, and rotation error metrics.
-
-
 # Create subplots
 fig = make_subplots(rows=3, cols=1, shared_xaxes=True, subplot_titles=['Original Time Series', 'Reconstruction Errors', 'Anomalies'])
 
