@@ -34,7 +34,7 @@ fig.add_trace(go.Scatter(x=time, y=np.full_like(reconstruction_errors, threshold
 # Plot anomalies
 fig.add_trace(go.Scatter(x=time, y=np.where(anomalies, original_data, None), mode='markers', marker=dict(color='red', size=8), name='Anomalies'), row=3, col=1)
 
-Multiple camera calibration with varying degrees of FOV involves determining the geometric parameters of cameras with different fields of view to align their perspectives in a shared coordinate system. Scenarios include partial overlap, full overlap, and non-overlapping fields of view. Key modules to implement include intrinsic and extrinsic parameter calculation, selection and detection of appropriate calibration patterns, synchronized image acquisition, initial pair-wise calibration, and simultaneous multi-camera optimization. Validation involves assessing calibration accuracy through reprojection, translation, and rotation error metrics, using advanced techniques like NeRF-based validation for enhanced accuracy.
+
 
 # Update layout
 fig.update_layout(title_text='Anomaly Detection with Reconstruction Errors', showlegend=False)
