@@ -21,7 +21,6 @@ threshold = 2.0
 reconstruction_errors = np.abs(original_data - np.mean(original_data))
 anomalies = reconstruction_errors > threshold
 
-The calibration modules should be highly modular, reusable, and extensible to facilitate easy integration with different camera setups and varying field of view configurations. This ensures that the system can adapt to new hardware without significant rework and allows for future enhancements and scalability. Modular design also promotes code reuse, reducing development time and improving maintainability.
 
 
 # Create subplots
