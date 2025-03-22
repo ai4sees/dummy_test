@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Camera Calibration Overlay Guide</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      background-color: #f0f0f0;
+    }
+    canvas {
+      border: 2px solid #444;
+      margin-top: 20px;
+    }
+    .controls {
+      margin-top: 20px;
+    }
+    button {
+      margin: 0 10px;
+      padding: 10px 20px;
+    }
+  </style>
+</head>
+<body>
+  <h2>Camera Calibration Overlay Guide</h2>
+  <p>Use the buttons below to show different board alignment guides (for perspective)</p>
+  <canvas id="overlayCanvas" width="600" height="400"></canvas>
+  <div class="controls">
+    <button onclick="drawFrontal()">Frontal View</button>
+    <button onclick="drawTiltBackward()">Tilt Backward</button>
+    <button onclick="drawTiltLeft()">Tilt Left</button>
+    <button onclick="drawTiltRight()">Tilt Right</button>
+  </div>
+
+  <script>
+    const canvas = document.getElementById("overlayCanvas");
+    const ctx = canvas.getContext("2d");
+
+    function clearCanvas() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+    }
+
+    function drawFrontal() {
+      clearCanvas();
+      ctx.strokeStyle = "blue";
+      ctx.lineWidth = 3;
+      ctx.strokeRect(150, 100, 300, 200);
+    }
+
+    function drawTiltBackward() {
+      clearCanvas();
+      ctx.strokeStyle = "green";
+      ctx.lineWidth = 3;
+      ctx.beginPath();
+      ctx.moveTo(200, 120);
+      ctx.lineTo(400, 120);
+      ctx.lineTo(450, 300);
+      ctx.lineTo(150, 300);
+      ctx.closePath();
+      ctx.stroke();
+    }
+
+    function drawTiltLeft() {
+      clearCanvas();
+      ctx.strokeStyle = "orange";
+      ctx.lineWidth = 3;
+      ctx.beginPath();
+      ctx.moveTo(180, 120);
+      ctx.lineTo(420, 120);
+      ctx.lineTo(400, 300);
+      ctx.lineTo(150, 300);
+      ctx.closePath();
+      ctx.stroke();
+    }
+
+    function drawTiltRight() {
+      clearCanvas();
+      ctx.strokeStyle = "red";
+      ctx.lineWidth = 3;
+      ctx.beginPath();
+      ctx.moveTo(150, 120);
+      ctx.lineTo(390, 120);
+      ctx.lineTo(450, 300);
+      ctx.lineTo(180, 300);
+      ctx.closePath();
+      ctx.stroke();
+    }
+
+    // Default view
+    drawFrontal();
+  </script>
+</body>
+</html>
+
+
+Got it! Here's a rewritten and clearer version of your instructions, structured for a developer and optimized for usability with blue-collar workers:
+
+---
+
+### 📸 Camera Calibration Automation – Developer Guidelines
+
+#### Objective:
+Develop an **automated guidance system** for camera calibration where a blue-collar user manually holds and moves a calibration board in front of the camera. The system should ensure sufficient variation in **rotation, scale, perspective, and translation** for accurate calibration.
+
+---
+
+### 🧭 Movement & Pose Coverage
+
+Ensure that the captured images collectively cover intrinsic variations such as:
+
+- **Rotation** (tilting or turning the board along any axis)
+- **Scale** (moving the board closer or farther from the camera)
+- **Perspective** (capturing trapezoidal/angled views)
+- **Translation** (moving the board side to side or up/down)
+
+> **Note**: These are intrinsic image variations critical for calibration.
+
+---
+
+### 📐 Perspective Consideration:
+- Simulate **2D projections** of the calibration board such as:
+  - Trapezoids
+  - Quadrilaterals
+- Ensure a range of viewpoints so that the board appears from different angles and positions.
+
+---
+
+### 📈 Coverage Requirement:
+- Ensure **cumulative pose coverage ≥ 80%** across all images.
+- You may need to quantify or visualize this coverage to validate.
+
+---
+
+### 🤖 Automation Workflow
+
+In the automation interface:
+
+1. **Display a reference rectangle** (or overlay) on the screen to guide the user.
+2. Prompt the user to move the board in the following directions and rotations:
+   - **Left / Right**
+   - **Near (closer) / Far (away)**
+   - **Rotate Left / Rotate Right**
+   - **Tilt up/down or sideward** for perspective shifts
+3. For each type of movement or rotation, **capture at least 5 images**.
+4. Provide **visual or voice feedback** to help the user understand the desired pose or when a good pose has been captured.
+
+---
+
+### ✅ Validation Requirement:
+In the validation step, show the **overlap between detected and projected patterns** (as discussed in the MoM) to verify calibration accuracy.
+
+---
+
+Would you like me to also create a short visual guide or mock UI flow for your team or the end users?
+
